@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 export default {
   telemetry: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -10,6 +11,17 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+
+  alias: {
+    components: resolve(__dirname, './components'),
+    config: resolve(__dirname, './config'),
+    data: resolve(__dirname, './data'),
+    enums: resolve(__dirname, './enums'),
+    lib: resolve(__dirname, './lib'),
+    moves: resolve(__dirname, './lib/moves'),
+    styles: resolve(__dirname, './styles'),
+    utils: resolve(__dirname, './utils'),
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

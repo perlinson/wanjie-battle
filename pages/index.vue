@@ -28,20 +28,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'IndexPage',
   data() {
     return {}
   },
   computed: {
-    ...mapState('game', ['playerId', 'playerName']),
     matchID: {
       get() {
-        return this.$store.state.game.matchID
+        return this.$store.state.game.matchId
       },
       set(value) {
-        this.$store.commit('game/SET_MATCH_ID', value)
+        this.$store.commit('game/setMatchId', value)
       },
     },
     playerId: {
@@ -50,7 +48,7 @@ export default {
       },
       set(value) {
         console.log('set playerId', value)
-        this.$store.commit('game/SET_PLAYER_ID', value)
+        this.$store.commit('game/setPlayerId', value)
       },
     },
     playerName: {
@@ -58,7 +56,7 @@ export default {
         return this.$store.state.game.playerName
       },
       set(value) {
-        this.$store.commit('game/SET_PLAYER_NAME', value)
+        this.$store.commit('game/setPlayerName', value)
       },
     },
   },
@@ -76,7 +74,7 @@ export default {
     async enterGame() {
       try {
         await this.$store.dispatch('game/joinMatch', {
-          playerID: this.playerId,
+          playerId: this.playerId,
           playerName: this.playerName,
         })
         this.$router.push('game')
